@@ -1,0 +1,27 @@
+<html>
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+    obj.style.width = obj.contentWindow.document.body.scrollWidth + 'px';
+
+  }
+</script>
+<body>
+<ul>
+  <li>
+    <iframe src="http://localhost:9000/ip/" frameborder="1" scrolling="no" onload="resizeIframe(this)"></iframe>
+  </li>
+  <li>
+    <iframe src="http://localhost:9000/disks/" frameborder="1" scrolling="no" onload="resizeIframe(this)"></iframe>
+  </li>
+</ul>
+
+<form action="/shutdown">
+  <input type="submit" value="Shutdown">
+</form>
+
+
+  </div>
+</body>
+
+</htm>

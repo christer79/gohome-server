@@ -1,0 +1,13 @@
+<html>
+<body>
+  <h1> DISK USAGE</h1>
+<table cellpadding="20">
+  <tr><td>Path</td><td>All</td><td>Used</td><td>Free</td></tr>
+
+  {{ range . }}
+  <tr><td>{{ .Path  }}</td><td>{{.All}}</td><td>{{.Used}}</td><td>{{.Free}}</td></tr>
+  {{ end }}
+</table>
+</body>
+
+</htm>
