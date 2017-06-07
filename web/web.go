@@ -5,9 +5,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/christer79/home-server/disks"
-	"github.com/christer79/home-server/ip"
-	"github.com/christer79/home-server/sysinfo"
+	"github.com/christer79/gohome-server/disks"
+	"github.com/christer79/gohome-server/ip"
+	"github.com/christer79/gohome-server/sysinfo"
 	"github.com/gorilla/mux"
 )
 

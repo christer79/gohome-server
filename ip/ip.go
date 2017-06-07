@@ -8,7 +8,7 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/christer79/home-server/sysinfo"
+	"github.com/christer79/gohome-server/sysinfo"
 )
 
 //Client ip address client

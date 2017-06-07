@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/christer79/home-server/sysinfo"
+	"github.com/christer79/gohome-server/sysinfo"
 )
 
 type Client struct {
