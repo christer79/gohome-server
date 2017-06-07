@@ -12,10 +12,11 @@ import (
 )
 
 type DiskStatusScaled struct {
-	All  string
-	Used string
-	Free string
-	Path string
+	All      string
+	Used     string
+	Free     string
+	Path     string
+	UsedPerc string
 }
 
 type Client struct {
@@ -40,6 +41,7 @@ func (c Client) WebHandler(w http.ResponseWriter, r *http.Request) {
 	devisor := uint64(1)
 	unit := "B"
 	for _, usage := range diskUsage {
+
 		if usage.All > 90000000 {
 			devisor = sysinfo.MB
 			unit = "MB"
@@ -49,7 +51,7 @@ func (c Client) WebHandler(w http.ResponseWriter, r *http.Request) {
 			unit = "GB"
 		}
 
-		scaledUsage = append(scaledUsage, DiskStatusScaled{Path: usage.Path, All: fmt.Sprintf("%2d %s", usage.All/devisor, unit), Free: fmt.Sprintf("%2.2d %s", usage.Free/devisor, unit), Used: fmt.Sprintf("%2.2d %s", usage.Used/devisor, unit)})
+		scaledUsage = append(scaledUsage, DiskStatusScaled{Path: usage.Path, All: fmt.Sprintf("%2d %s", usage.All/devisor, unit), Free: fmt.Sprintf("%2.2d %s", usage.Free/devisor, unit), Used: fmt.Sprintf("%2.2d %s", usage.Used/devisor, unit), UsedPerc: fmt.Sprintf("%2.0f %%", 100*float64(usage.Used)/float64(usage.All))})
 	}
 	log.Println(scaledUsage)
 	t.Execute(w, scaledUsage)
