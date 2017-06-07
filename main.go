@@ -22,6 +22,10 @@ func main() {
 			Name:  "disks",
 			Usage: "List of disks to monitor usage of",
 		}),
+		altsrc.NewStringFlag(cli.StringFlag{
+			Name:  "port",
+			Usage: "Port to listen for incomming requests",
+		}),
 		cli.StringFlag{
 			Name:  "config",
 			Value: "config.yml",
@@ -31,12 +35,9 @@ func main() {
 	app.Action = func(c *cli.Context) error {
 		fmt.Println(c.GlobalStringSlice("disks"))
 		disks := disks.Client{Filesystems: c.StringSlice("disks")}
-
-		disks.Write(os.Stdout)
 		ip := ip.Client{}
-		ip.Write(os.Stdout)
 
-		web.Client{Disks: disks, IP: ip}.Start("9000")
+		web.Client{Disks: disks, IP: ip}.Start(c.String("port"))
 		return nil
 	}
 

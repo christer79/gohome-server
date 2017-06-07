@@ -8,11 +8,12 @@
 </script>
 <body>
 <ul>
+  <li>{{ .Addr }}</li>
   <li>
-    <iframe src="http://localhost:9000/ip/" frameborder="1" scrolling="no" onload="resizeIframe(this)"></iframe>
+    <iframe src="{{ .Addr }}/ip/" frameborder="1" scrolling="no" onload="resizeIframe(this)"></iframe>
   </li>
   <li>
-    <iframe src="http://localhost:9000/disks/" frameborder="1" scrolling="no" onload="resizeIframe(this)"></iframe>
+    <iframe src="{{ .Addr }}/disks/" frameborder="1" scrolling="no" onload="resizeIframe(this)"></iframe>
   </li>
 </ul>
 

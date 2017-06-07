@@ -22,8 +22,12 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
-	i := 0
-	t.Execute(w, i)
+	type requestData struct {
+		Addr string
+	}
+	var R requestData
+	R.Addr = r.Header.Get("URI")
+	t.Execute(w, R)
 }
 
 //WebHandler handler to render home screen
