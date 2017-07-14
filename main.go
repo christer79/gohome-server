@@ -25,6 +25,7 @@ func main() {
 		altsrc.NewStringFlag(cli.StringFlag{
 			Name:  "port",
 			Usage: "Port to listen for incomming requests",
+			Value: "9000",
 		}),
 		cli.StringFlag{
 			Name:  "config",
