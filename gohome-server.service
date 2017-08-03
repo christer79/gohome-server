@@ -1,0 +1,15 @@
+[Unit]
+Description=Starting gohome-server
+Documentation=
+
+[Service]
+Restart=always
+WorkingDirectory=/opt/gohome-server/
+ExecStart=/opt/gohome-server//gohome-server start
+StandardOutput=syslog
+StandardError=syslog
+
+TimeoutSec=10 min
+
+[Install]
+WantedBy=multi-user.target
