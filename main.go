@@ -7,8 +7,8 @@ import (
 	"github.com/christer79/gohome-server/disks"
 	"github.com/christer79/gohome-server/ip"
 	"github.com/christer79/gohome-server/web"
-	"github.com/urfave/cli/altsrc"
 	"gopkg.in/urfave/cli.v1"
+	"gopkg.in/urfave/cli.v1/altsrc"
 )
 
 func main() {
@@ -21,6 +21,7 @@ func main() {
 		altsrc.NewStringSliceFlag(cli.StringSliceFlag{
 			Name:  "disks",
 			Usage: "List of disks to monitor usage of",
+			Value: &cli.StringSlice{"/"},
 		}),
 		altsrc.NewStringFlag(cli.StringFlag{
 			Name:  "port",
@@ -29,7 +30,7 @@ func main() {
 		}),
 		cli.StringFlag{
 			Name:  "config",
-			Value: "config.yml",
+			Value: "/etc/gohome-server/config.yml",
 		},
 	}
 
